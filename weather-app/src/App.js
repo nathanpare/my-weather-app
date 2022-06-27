@@ -14,6 +14,7 @@ function App() {
         setData(response.data);
         console.log(response.data);
       })
+      setLocation("");
     }
   }
   return (
@@ -29,13 +30,13 @@ function App() {
       <div className="container">
         <div className="top">
           <div className="location">
-            <p>Vancouver</p>
+            <p>{data.name}</p>
           </div>
           <div className="temp">
-          <h1>23°C</h1>
+          {data.main ? <h1>{data.main.temp}°C</h1> : null}
           </div>
           <div className="desc">
-            <p>Sunny</p>
+            {data.weather ? <p>{data.weather[0].main}</p> : null}
           </div>
         </div>
         <div className="bottom">
